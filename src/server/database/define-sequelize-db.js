@@ -5,4 +5,11 @@ import {
 } from '../config';
 
 export default !firebaseURL || isPostgres
-new Sequelize(pgConnectionString, {})
+  ? sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    dialectOptions: {
+        ssl: true
+    }
+})
+  : null;
