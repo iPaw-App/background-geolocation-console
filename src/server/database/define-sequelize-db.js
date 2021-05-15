@@ -5,7 +5,7 @@ import {
 } from '../config';
 
 export default !firebaseURL || isPostgres
-  ? sequelize = new Sequelize(process.env.DATABASE_URL, {
+  ? new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     protocol: 'postgres',
     dialectOptions: {
